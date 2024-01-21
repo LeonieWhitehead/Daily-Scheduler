@@ -1,7 +1,7 @@
 $(document).ready(function () {
   console.log("Document is ready."); // Check if document is ready
   // Display current date in the header
-  $("currentDay").text(dayjs().format("dddd, MMMM D"));
+  $("#currentDay").text(dayjs().format("dddd, MMMM D"));
 
   // let currentDay= $("currentDay");
   // let now=dayjs().format('dddd, MMMM Do D');
@@ -37,23 +37,31 @@ $(document).ready(function () {
     });
   }
 
-// Function to save events to localStorage
+  // Function to save events to localStorage
+  function savedEvents() {
+    $(".row").each(function () {
+      let hourBlock = $(this).find(".col-md-1").text().trim();
+      let eventText = $(this).find("#timeBlockText").value().trim();
 
-// Update colors on page load
-updateHourlyColors();
+      localStorage.setItem(hourBlock, eventText);
+    });
+  }
 
-// Load saved events on page load
-loadEvents();
+  // Update colors on page load
+  updateHourlyColors();
+
+  // Load saved events on page load
+  loadEvents();
 
   // function for timeslots
   // $("hourOfDay").each(function()){
 
   // }
-// Save events on save button click
-  $(".saveBtn").on("click", function(){
+  // Save events on save button click
+  $(".saveBtn").on("click", function () {
     saveEvents();
     // console.log(this);
     // event.preventDefault();
-  // $("#hourOfDay").append("#timeBlockText");
+    // $("#hourOfDay").append("#timeBlockText");
   });
 });
