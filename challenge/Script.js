@@ -15,13 +15,21 @@ $(document).ready(function () {
     $(".row").each(function () {
       let hourBlock = parseInt($(this).find(".time-column").text().trim());
 
-      if (hourBlock < currentHour) {
-        $(this).removeClass("present future").addClass("past");
-      } else if (hourBlock === currentHour) {
-        $(this).removeClass("past future").addClass("present");
-      } else {
-        $(this).removeClass("past present").addClass("future");
-      }
+      // if (hourBlock < currentHour) {
+      //   $(this).removeClass("present future").addClass("past");
+      // } else if (hourBlock === currentHour) {
+      //   $(this).removeClass("past future").addClass("present");
+      // } else {
+      //   $(this).removeClass("past present").addClass("future");
+      // }
+
+
+      //clean up code by combining if statements using ternary
+      $(this).removeClass("past present future").addClass(
+        hourBlock < currentHour ? "past" :
+        hourBlock === currentHour ? "present" :
+        "future"
+      );
     });
   }
 
