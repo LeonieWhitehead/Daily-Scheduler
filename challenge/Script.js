@@ -1,19 +1,19 @@
 $(document).ready(function () {
   console.log("Document is ready."); // Check if document is ready
   // Display current date in the header
-  $("#currentDay").text(dayjs().format("dddd, MMMM D"));
+  // $("#currentDay").text(dayjs().format("dddd, MMMM D"));
 
-  // let currentDay= $("currentDay");
-  // let now=dayjs().format('dddd, MMMM Do D');
-  // // currentDay.text(now);
-  // $("currentDay").html(currentDay);
+  let currentDay= $("#currentDay");
+  let today =dayjs().format('dddd, MMMM D');
+  // currentDay.text(now);
+  currentDay.text(today);
 
-  // Function to update time block colors based on current time
+  // Function to update time block colours based on current time
   function updateHourlyColours() {
     let currentHour = dayjs().hour();
 
     $(".row").each(function () {
-      let hourBlock = parseInt($(this).find(".col-md-1").text().trim());
+      let hourBlock = parseInt($(this).find(".time-column").text().trim());
 
       if (hourBlock < currentHour) {
         $(this).removeClass("present future").addClass("past");
@@ -28,26 +28,26 @@ $(document).ready(function () {
   // Function to load saved events from localStorage
   function loadEvents() {
     $(".row").each(function () {
-      let hourBlock = $(this).find(".col-md-1").text().trim();
+      let hourBlock = $(this).find(".time-column").text().trim();
       let savedEvent = localStorage.getItem(hourBlock);
 
       if (savedEvent) {
-        $(this).find("#timeBlockText").val(savedEvent);
+        $(this).find(".timeBlockText").val(savedEvent);
       }
     });
   }
 
   // Function to save events to localStorage
-  function savedEvents() {
+  function saveEvents() {
     $(".row").each(function () {
-      let hourBlock = $(this).find(".col-md-1").text().trim();
-      let eventText = $(this).find("#timeBlockText").val().trim();
+      let hourBlock = $(this).find(".time-column").text().trim();
+      let eventText = $(this).find(".timeBlockText").val().trim();
 
       localStorage.setItem(hourBlock, eventText);
     });
   }
 
-  // Update colors on page load
+  // Update colours on page load
   updateHourlyColours();
 
   // Load saved events on page load
@@ -59,7 +59,7 @@ $(document).ready(function () {
   // }
   // Save events on save button click
   $(".saveBtn").on("click", function () {
-    savedEvents();
+    saveEvents();
     // console.log(this);
     // event.preventDefault();
     // $("#hourOfDay").append("#timeBlockText");
