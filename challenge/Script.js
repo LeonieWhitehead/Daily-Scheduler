@@ -9,7 +9,7 @@ $(document).ready(function () {
   // $("currentDay").html(currentDay);
 
   // Function to update time block colors based on current time
-  function updateHourlyColors() {
+  function updateHourlyColours() {
     let currentHour = dayjs().hour();
 
     $(".row").each(function () {
@@ -32,7 +32,7 @@ $(document).ready(function () {
       let savedEvent = localStorage.getItem(hourBlock);
 
       if (savedEvent) {
-        $(this).find("#timeBlockText").value(savedEvent);
+        $(this).find("#timeBlockText").val(savedEvent);
       }
     });
   }
@@ -41,14 +41,14 @@ $(document).ready(function () {
   function savedEvents() {
     $(".row").each(function () {
       let hourBlock = $(this).find(".col-md-1").text().trim();
-      let eventText = $(this).find("#timeBlockText").value().trim();
+      let eventText = $(this).find("#timeBlockText").val().trim();
 
       localStorage.setItem(hourBlock, eventText);
     });
   }
 
   // Update colors on page load
-  updateHourlyColors();
+  updateHourlyColours();
 
   // Load saved events on page load
   loadEvents();
@@ -59,7 +59,7 @@ $(document).ready(function () {
   // }
   // Save events on save button click
   $(".saveBtn").on("click", function () {
-    saveEvents();
+    savedEvents();
     // console.log(this);
     // event.preventDefault();
     // $("#hourOfDay").append("#timeBlockText");
