@@ -1,16 +1,14 @@
-let today = dayjs();
-$('#currentDay').text(today.format("dddd-MMMM-D"));
+$(document).ready(function() {
+  console.log("Document is ready."); // Check if document is ready
+});
 
-//Get data for header date
-// $(document).ready(function() {
-// let currentDate = dayjs();
-// let formattedDate = currentDate.format('dddd-MMMM-D');
-// $('#currentDay').text(formattedDate);
-// console.log(formattedDate);
-// });
+let currentDay= $("currentDay");
+let now=dayjs().format('dddd, MMMM Do D');
+// currentDay.text(now);
+$("currentDay").html(currentDay);
 
-// Create Hours
-let hoursInDay =[]
+// let timeBlock =
 
-// Create timeblocks
-// Time dependent row colours
+$(".saveBtn").on("click", function(){
+  
+})
