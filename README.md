@@ -27,6 +27,7 @@ Local Storage:
 Events are saved in local storage, ensuring that the user's schedule persists between refreshes of the page.
 
 ## Screenshot
+![Quiz Screenshot](./challenge/images/127.0.0.1_5500_Daily-Scheduler_challenge_index.html.png)
 
 ## Deployed URL
 https://leoniewhitehead.github.io/Daily-Scheduler/
