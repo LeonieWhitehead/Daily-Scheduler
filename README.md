@@ -29,6 +29,7 @@ Events are saved in local storage, ensuring that the user's schedule persists be
 ## Screenshot
 
 ## Deployed URL
+https://leoniewhitehead.github.io/Daily-Scheduler/
 
 ## Usage
 To use the Work Day Scheduler:
